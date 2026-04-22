@@ -1,0 +1,146 @@
+/* =============================================
+   ThreadSwap — Custom Stylesheet
+   Uses Bootstrap 5 as CSS framework base.
+   ============================================= */
+
+/* --- 1. Root variables (color, font) --- */
+:root {
+    --ts-primary:   #212529;
+    --ts-accent:    #ffc107;
+    --ts-soft-bg:   #f8f9fa;
+    --ts-card-shadow: 0 2px 12px rgba(0,0,0,.08);
+    --ts-radius: 10px;
+    --ts-transition: .2s ease;
+}
+
+/* --- 2. Body typography --- */
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--ts-soft-bg);
+    color: var(--ts-primary);
+    line-height: 1.6;
+}
+
+/* --- 3. Navbar brand styling --- */
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: -.5px;
+}
+
+/* --- 4. Item card --- */
+.item-card {
+    border: none;
+    border-radius: var(--ts-radius);
+    box-shadow: var(--ts-card-shadow);
+    transition: transform var(--ts-transition), box-shadow var(--ts-transition);
+    overflow: hidden;
+    background: #fff;
+}
+
+.item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.13);
+}
+
+/* --- 5. Item card image wrapper --- */
+.item-card .card-img-top {
+    height: 220px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.item-card .card-img-placeholder {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    color: #aaa;
+    font-size: 3rem;
+}
+
+/* --- 6. Price badge --- */
+.price-badge {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #198754;
+}
+
+/* --- 7. Condition badge colors --- */
+.badge-condition-new       { background-color: #198754; }
+.badge-condition-like_new  { background-color: #0d6efd; }
+.badge-condition-good      { background-color: #fd7e14; }
+.badge-condition-fair      { background-color: #6c757d; }
+
+/* --- 8. Hero section --- */
+.hero-section {
+    background: linear-gradient(135deg, var(--ts-primary) 0%, #495057 100%);
+    color: #fff;
+    padding: 80px 0;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* --- 9. Auth card --- */
+.auth-card {
+    max-width: 440px;
+    margin: 60px auto;
+    border: none;
+    border-radius: var(--ts-radius);
+    box-shadow: var(--ts-card-shadow);
+    padding: 40px;
+    background: #fff;
+}
+
+/* --- 10. Admin sidebar --- */
+.admin-sidebar {
+    background: var(--ts-primary);
+    color: #fff;
+    min-height: calc(100vh - 60px);
+    padding: 20px 0;
+}
+
+.admin-sidebar .nav-link {
+    color: rgba(255,255,255,.75);
+    padding: 10px 20px;
+    border-radius: 0;
+    transition: background var(--ts-transition);
+}
+
+.admin-sidebar .nav-link:hover,
+.admin-sidebar .nav-link.active {
+    background: rgba(255,255,255,.1);
+    color: #fff;
+}
+
+/* --- 11. Form feedback --- */
+.field-error {
+    color: #dc3545;
+    font-size: .875rem;
+    margin-top: .25rem;
+}
+
+/* --- 12. Pagination --- */
+.pagination .page-item.active .page-link {
+    background-color: var(--ts-primary);
+    border-color: var(--ts-primary);
+}
+
+/* --- 13. Item detail page --- */
+.item-detail-img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: var(--ts-radius);
+    background: #f8f8f8;
+}
+
+/* --- 14. Footer links --- */
+footer a:hover {
+    color: var(--ts-accent) !important;
+}
