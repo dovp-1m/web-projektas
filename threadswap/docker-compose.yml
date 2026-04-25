@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+  app:
+    build: .
+    container_name: threadswap_app
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public/uploads:/var/www/html/public/uploads
+      - ./writable:/var/www/html/writable
+    environment:
+      CI_ENVIRONMENT: development
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - threadswap_net
+
+  db:
+    image: mysql:8.0
+    container_name: threadswap_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: threadswap
+      MYSQL_USER: threadswap_user
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: rootsecret
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - threadswap_net
+
+volumes:
+  db_data:
+
+networks:
+  threadswap_net:
