@@ -4,7 +4,12 @@
 <div class="row g-4">
     <div class="col-md-6">
         <?php if ($item['image']): ?>
-            <img src="<?= base_url('uploads/' . $item['image']) ?>"
+            <?php
+                $imgSrc = (str_starts_with($item['image'], 'http://') || str_starts_with($item['image'], 'https://'))
+                    ? $item['image']
+                    : base_url('uploads/' . $item['image']);
+            ?>
+            <img src="<?= $imgSrc ?>"
                  class="item-detail-img" alt="<?= esc($item['title']) ?>">
         <?php else: ?>
             <div class="item-detail-img d-flex align-items-center justify-content-center bg-light">

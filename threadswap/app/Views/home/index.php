@@ -24,7 +24,12 @@
                 <a href="<?= base_url('items/' . $item['id']) ?>" class="text-decoration-none text-dark">
                     <div class="card item-card h-100">
                         <?php if ($item['image']): ?>
-                            <img src="<?= base_url('uploads/' . $item['image']) ?>"
+                            <?php
+                                $imgSrc = (str_starts_with($item['image'], 'http://') || str_starts_with($item['image'], 'https://'))
+                                    ? $item['image']
+                                    : base_url('uploads/' . $item['image']);
+                            ?>
+                            <img src="<?= $imgSrc ?>"
                                  class="card-img-top" alt="<?= esc($item['title']) ?>">
                         <?php else: ?>
                             <div class="card-img-placeholder">
