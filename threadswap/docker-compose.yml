@@ -6,8 +6,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./public/uploads:/var/www/html/public/uploads
-      - ./writable:/var/www/html/writable
+      - uploads_data:/var/www/html/public/uploads
+      - writable_data:/var/www/html/writable
     environment:
       CI_ENVIRONMENT: development
     depends_on:
@@ -37,6 +37,8 @@ services:
 
 volumes:
   db_data:
+  uploads_data:
+  writable_data:
 
 networks:
   threadswap_net:
