@@ -9,11 +9,9 @@ class HomeController extends BaseController
     public function index(): string
     {
         $itemModel = new ItemModel();
-        $items = $itemModel->getActiveItems(8);
-
         return view('home/index', [
             'title' => 'Home',
-            'items' => $items,
+            'items' => $itemModel->getActiveItems(8),
         ]);
     }
 }
