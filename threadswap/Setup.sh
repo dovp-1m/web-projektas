@@ -69,8 +69,8 @@ mkdir -p public/uploads
 chmod -R 777 writable public/uploads
 
 echo "Building and pulling Docker images (this may take a few minutes)..."
-docker compose pull db        # pull MySQL image in parallel while we build
-docker compose build app      # build the PHP/Apache image
+docker compose pull db
+docker compose build app
 
 echo "Starting ThreadSwap containers..."
 docker compose up -d
@@ -97,5 +97,5 @@ docker compose exec -T app php spark db:seed DatabaseSeeder
 
 echo ""
 echo -e "  Admin credentials:"
-echo -e "    Email:    ${YELLOW}admin@threadswap.lt${NC}"
-echo -e "    Password: ${YELLOW}Admin1234!${NC}"
+echo -e "    Email:    admin@threadswap.lt"
+echo -e "    Password: Admin1234!"
